@@ -9,7 +9,8 @@ const defaults = {
 function OSS (options) {
   this.options = Object.assign({}, defaults, options)
   this.client = axios.create({
-    baseURL: `https://${options.bucket}.${options.region}.aliyuncs.com`
+    baseURL: `https://${this.options.bucket}.${this.options.region}.aliyuncs.com`,
+    crossdomain: this.options.crossdomain
   })
 }
 
