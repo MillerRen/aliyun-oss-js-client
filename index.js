@@ -3,7 +3,8 @@ const axios = require('axios')
 const Xml2js = require('x2js')
 
 const defaults = {
-  region: 'oss-cn-hangzhou'
+  region: 'oss-cn-hangzhou',
+  crossdomain: true
 }
 
 function OSS (options) {
