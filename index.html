@@ -14,11 +14,7 @@
       function onChange (e) {
         var files = e.files
         var file = files[0]
-        oss.put(file.name, file, {
-          headers: {
-            'Content-Type': file.type
-          }
-        })
+        oss.put(file.name, file)
         .then(function () {
           console.log('上传成功')
           input.value = ''

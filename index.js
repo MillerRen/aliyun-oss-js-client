@@ -51,8 +51,12 @@ OSS.prototype.put = function (name, file, options) {
   var config = Object.assign({
     method: 'PUT',
     url: name,
-    data: file
+    data: file,
+    headers: {}
   }, options)
+  if (file && file.type) {
+    config.headers['Content-Type'] = file.type
+  }
   return this.request(config)
 }
 
