@@ -1,5 +1,5 @@
 /* eslint-env node, mocha */
-// const expect = require('chai').expect
+const expect = require('chai').expect
 const OSS = require('./index')
 const config = {
   accessKeyId: process.env.ACCESS_KEY_ID,
@@ -35,6 +35,9 @@ describe('Object', () => {
     return oss.list({
       prefix: prefix
     })
+      .then((res) => {
+        expect(res.data).to.be.an('object')
+      })
   })
 
   it('delete', () => {
