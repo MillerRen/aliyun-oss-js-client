@@ -24,7 +24,7 @@ OSS.prototype.list = function (params, options) {
   }, options)
   return this.request(config)
     .then(function (res) {
-      if (res.headers['content-type'] === 'application/xml') return res
+      if (res.headers['content-type'] !== 'application/xml') return res
       var parser = new Xml2js()
       res.data = parser.xml2js(res.data)
       return res
